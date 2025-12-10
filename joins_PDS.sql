@@ -17,6 +17,9 @@ INSERT INTO products VALUES
 (4, 'Mechanical Keyboard', 'Electronics', 89.99),
 (5, 'Monitor 27"', 'Electronics', 299.99);
 
+-- look at the products table
+SELECT * FROM products;
+
 -- Create Orders Table
 CREATE TABLE orders (
     order_id INT PRIMARY KEY,
@@ -33,6 +36,9 @@ INSERT INTO orders VALUES
 (104, 1003, 2, 3, '2024-01-18'),
 (105, 1004, 6, 1, '2024-01-19');  -- product_id 6 doesn't exist!
 
+-- query the orders table
+SELECT * FROM orders;
+
 -- Create Users Table
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
@@ -46,6 +52,10 @@ INSERT INTO users VALUES
 (1002, 'Bob Smith', 'Canada', '2024-01-05'),
 (1003, 'Carol Lee', 'UK', '2023-11-20'),
 (1005, 'David Chen', 'Australia', '2024-01-10');  -- No orders yet
+
+-- Query the users tables
+SELECT * FROM users;
+
 
 -- Create Product Reviews Table
 CREATE TABLE reviews (
@@ -61,6 +71,9 @@ INSERT INTO reviews VALUES
 (2, 3, 1002, 4, 'Good quality cable'),
 (3, 4, 1001, 5, 'Best keyboard I have owned'),
 (4, 2, 1003, 3, 'Decent stand but a bit wobbly');
+
+-- query the reviews table
+SELECT * FROM reviews;
 
 -- inner joins
 
@@ -100,6 +113,9 @@ What it does: Returns ALL rows from the left table, with matching rows from the 
 When to use: When you want all records from your primary table, even if they don't have matches.
 */
 
+-- example coalese
+SELECT COALESCE(NULL, NULL, "Hello");
+
 SELECT 
     p.product_id,
     p.product_name,
@@ -134,6 +150,9 @@ SELECT
     o.quantity
 FROM products p
 RIGHT JOIN orders o ON p.product_id = o.product_id;
+
+SELECT * FROM orders;
+SELECT * FROM products;
 -- Pro Tip: Most data scientists prefer LEFT JOIN and just swap table order. It's more readable.
 
 /* 4. FULL OUTER JOIN - Everything from Both Tables
@@ -242,6 +261,8 @@ INNER JOIN products p ON o.product_id = p.product_id
 LEFT JOIN reviews r ON p.product_id = r.product_id 
     AND u.user_id = r.user_id
 ORDER BY o.order_date DESC;
+
+-- Friday
 
 -- Product Analytics Use Case: User Lifetime Value (LTV) Calculation
 SELECT 
