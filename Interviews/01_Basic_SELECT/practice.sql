@@ -54,7 +54,9 @@ INSERT INTO netflix_titles VALUES
 
 -- Q1. [EASY] Retrieve ALL columns for every title in the catalog.
 
+SELECT * FROM netflix_titles;
 
+SHOW TABLES;
 
 -- Q2. [EASY] Show only the title, type, and release_year columns for all records.
 

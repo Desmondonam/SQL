@@ -1,0 +1,6 @@
+# VSCode settings with DB credentials — keep local only
+.vscode/settings.json
+
+# OS files
+.DS_Store
+Thumbs.db
